@@ -1,14 +1,17 @@
 {% extends "base.html" %}
 {% block title %}Log in{% endblock %}
 {% block header %}
-<a href="signin">Sign in</a>
+<a href="logout">Log out</a>
 {% endblock %}
 {% block container %}
-<form action="login" method="POST">
-    <input type="text" name="nickname" placeholder="Nickname"><br>
-    <input type="password" name="password" placeholder="Password"><br>
-    <input type="submit" value="Entrar">
-</form>
+<h2>
+    {% if verify %}
+        Conta verificada
+    {% endif %}
+    {% if not verify %}
+        Conta não verificada
+    {% endif %}
+</h2>
 {% with messenges = get_flashed_messages() %}
     {% if messenges %}
         {% for m in messenges %}

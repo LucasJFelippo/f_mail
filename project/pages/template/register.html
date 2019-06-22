@@ -1,13 +1,15 @@
 {% extends "base.html" %}
-{% block title %}Log in{% endblock %}
+{% block title %}Sign In{% endblock %}
 {% block header %}
-<a href="signin">Sign in</a>
+<a href="/">Log in</a>
 {% endblock %}
 {% block container %}
-<form action="login" method="POST">
+<form action="register" method="POST">
+    <input type="text" name="name" placeholder="Name"><br>
     <input type="text" name="nickname" placeholder="Nickname"><br>
+    <input type="text" name="mail" placeholder="Email"><br>
     <input type="password" name="password" placeholder="Password"><br>
-    <input type="submit" value="Entrar">
+    <input type="submit" value="Sign in">
 </form>
 {% with messenges = get_flashed_messages() %}
     {% if messenges %}

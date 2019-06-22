@@ -5,14 +5,29 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 
 app = Flask(__name__, template_folder='template')
-app.secret_key = {"pw" = {"port": "6565", "salt": 8}}
 
 
 @app.route('/')
 def index():
-    password = generate_password_hash("teste", method='pbkdf2:sha256:6565', salt_length=8)
-    print(len(password))
-    return password+"  --  "+str(check_password_hash("pbkdf2:sha256:150000$EjgAp0g4$ba5c4b4773ff901b0819286967b4855284e0078813d28be64a04d965fa64ce93", "teste"))
+    plain = "lucasl"
+    key = "7|-|353(.-37|<3`/15847474"
+    cipher = ""
+    aux = 0
+    lim = len(plain) - 1
+    for l in key:
+        base = ord(l) + ord(plain[aux])
+        while (base > 126):
+            ex = base - 126
+            base = 33 + ex
+        cipher += chr(base)
+        if aux < lim:
+            aux += 1
+        else:
+            aux = 0
+    return cipher
+
+
+
 
 
 def main():

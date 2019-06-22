@@ -5,6 +5,7 @@ CREATE TABLE "user" (
 	"name" VARCHAR(100) NOT NULL,
 	"nickname" VARCHAR(50) UNIQUE NOT NULL,
 	"password" VARCHAR(92) NOT NULL,
+	"mail" VARCHAR(200) UNIQUE NOT NULL,
 	"verify" BOOLEAN DEFAULT False,
 	"admin" BOOLEAN DEFAULT False,
 	CONSTRAINT "UserPk" PRIMARY KEY ("cod"));
